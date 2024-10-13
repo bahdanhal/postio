@@ -1,0 +1,19 @@
+{
+    "name": "bhal/postio",
+    "description": "App where you can login as admin and create posts",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Postio\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bahdan Hal"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.14"
+    }
+}
