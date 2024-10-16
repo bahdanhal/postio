@@ -10,8 +10,6 @@ final readonly class LoginController extends Controller
 {
     public function __invoke(): LoginResponse
     {
-        return new LoginResponse(
-            new LoginResponseData(),
-        ) ;  
+        return new LoginResponse();  
     }
 }

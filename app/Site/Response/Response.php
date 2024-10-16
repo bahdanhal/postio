@@ -8,12 +8,9 @@ use Postio\Site\Response\ResponseData\ResponseData;
 
 abstract readonly class Response
 {
-    public function __construct(
-        private ResponseData $data,
-        private string $templateName,
-        private int $statusCode = 200,
-    ){
-    }
+    protected ResponseData $data;
+    protected string $templateName;
+    protected int $statusCode;
 
     public function getData(): ResponseData
     {

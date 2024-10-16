@@ -26,9 +26,7 @@ final readonly class Router
         if (array_key_exists($requestUri, $this->routes)) {
             $response = (new $this->routes[$requestUri]())();
         } else {
-            $response = new NotFoundResponse(
-                new NotFoundResponseData(),
-            );  
+            $response = new NotFoundResponse();  
         }
         
         ($this->render)($response);
