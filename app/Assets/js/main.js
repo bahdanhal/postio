@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         })
         .then(data => {
+            document.querySelector('.notification').innerHTML = 'News was successfully created!';
+            document.querySelector('.notification').removeAttribute('hidden');
             document.querySelector('#all-news-label').removeAttribute('hidden');
             const postElement = document.createElement('div');
             postElement.classList.add('news-item');
@@ -77,6 +79,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         })
         .then(data => {
+            document.querySelector('.notification').innerHTML = 'News was successfully updated!';
+            document.querySelector('.notification').removeAttribute('hidden');
+
             const postElement = document.createElement('div');
             postElement.classList.add('news-item');
             postElement.id = `news-item-${id}`;
@@ -97,8 +102,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             `;
         
             document.querySelector('#news-item-' + id).replaceWith(postElement);
-            document.querySelector('#delete-btn-' + data.id).addEventListener('click', removePost);
-            document.querySelector('#edit-btn-' + data.id).addEventListener('click', openEditForm);
+            document.querySelector('#delete-btn-' + id).addEventListener('click', removePost);
+            document.querySelector('#edit-btn-' + id).addEventListener('click', openEditForm);
         })
         .catch(error => {
         });
@@ -113,6 +118,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         })
         .then(response => {
             if (response.status === 204) {
+                document.querySelector('.notification').innerHTML = 'News was successfully deleted!';
+                document.querySelector('.notification').removeAttribute('hidden');
                 document.querySelector('#news-item-' + id).remove();
                 
                 if (!document.querySelector('.news-item')) {
