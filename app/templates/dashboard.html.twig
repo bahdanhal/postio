@@ -7,31 +7,56 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="/Assets/css/main.css" /> 
     {% endblock %}
+    {% block scripts %}
+        <script src="/Assets/js/main.js" type="text/javascript"></script>
+    {% endblock %}
 </head>
 <body>
     <div class="container">
         <div class="header">
             <img src="/Assets/Images/logo.svg" alt="Logo" class="logo">
         </div>
-        <div class="notification">
+        <div class="notification" hidden>
             News was successfully created!
         </div>
+        <div class="red-notification" hidden>
+            Empty content
+        </div>
         <div class="content">
-            <h2>All News</h2>
-            <div class="news-item">
-                <h3>Test</h3>
-                <p>This is a Test</p>
+            <h2 id="all-news-label" {% if posts is empty %}hidden{% endif %}>All News</h2>
+            <div class="news-items">
+            {% for post in posts %}
+            <div class="news-item" id="news-item-{{post.id}}">
+                <div class="post-content">
+                    <h3 id="post-title-{{post.id}}">{{post.title}}</h3>
+                    <p class="post-description" id="post-description-{{post.id}}">{{post.description}}</p>
+                </div>
                 <div class="buttons">
-                    <button class="edit-btn"><img src="/Assets/Images/pencil.svg" class="edit-btn-img" alt="pencil"></button>
-                    <button class="delete-btn"><img src="/Assets/Images/close.svg" class="delete-btn-img" alt="close"></button>
+                    <button class="edit-btn" id="edit-btn-{{post.id}}" data-id="{{post.id}}"><img src="/Assets/Images/pencil.svg" class="edit-btn-img" alt="pencil"></button>
+                    <button class="delete-btn" id="delete-btn-{{post.id}}" data-id="{{post.id}}"><img src="/Assets/Images/close.svg" class="delete-btn-img" alt="close"></button>
                 </div>
             </div>
-            <h2>Create News</h2>
-            <form class="news-form">
-                <input type="text" placeholder="Title" class="input" required>
-                <textarea placeholder="Description" class="textarea" required></textarea>
-                <button type="submit" class="btn">Create</button>
-            </form>
+            {% endfor %}
+            </div>
+            <div class="create-news-container">
+                <h2>Create News</h2>
+                <form class="create-news-form" id="create-news-form">
+                    <input type="text" placeholder="Title" class="input" id="create-title" required>
+                    <textarea placeholder="Description" class="textarea" id="create-description" required></textarea>
+                    <button type="submit" class="btn">Create</button>
+                </form>
+            </div>
+            <div class="update-news-container" hidden>
+                <div class="edit-header">
+                    <h2>Edit News</h2> 
+                    <button class="close-edit-btn"><img src="/Assets/Images/close.svg" class="close-edit-img" alt="close edit window"></button>
+                </div>
+                <form class="update-news-form" id="update-news-form">
+                    <input type="text" placeholder="Title" class="input" id="update-title" required>
+                    <textarea placeholder="Description" class="textarea" id="update-description" required></textarea>
+                    <button type="submit" class="btn">Save</button>
+                </form>
+            </div>
             <form class="logout-form" type="submit" action="/logout">
                 <button class="logout-btn"> Logout</button>
             </form>

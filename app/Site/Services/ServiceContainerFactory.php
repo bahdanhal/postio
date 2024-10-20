@@ -8,7 +8,6 @@ final readonly class ServiceContainerFactory
 {
     public function __invoke(): ServiceContainer
     {
-        return new ServiceContainer(
-        );
+        return new ServiceContainer();
     }
 }

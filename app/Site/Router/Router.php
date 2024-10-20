@@ -25,7 +25,11 @@ final readonly class Router
 
     public function __invoke(): void
     {
-        $request = new Request($_SERVER, $_REQUEST, $_COOKIE);
+        $request = new Request(
+            $_SERVER, 
+            array_merge($_REQUEST, json_decode(file_get_contents('php://input'), true) ?? []), 
+            $_COOKIE,
+        );
 
         if (array_key_exists($requestUri = $request->getRequestUri(), $this->routes)
             && array_key_exists($request->getMethod(), $this->routes[$requestUri])

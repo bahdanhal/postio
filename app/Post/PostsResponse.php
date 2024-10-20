@@ -13,7 +13,7 @@ final readonly class PostsResponse extends Response
 
     public function __construct(
         protected array $posts = [],
-        protected string $templateName = 'dashboard.html.twig',
+        protected ?string $templateName = 'dashboard.html.twig',
         protected int $statusCode = 200,
     ) {
         $this->data = new PostsResponseData($posts);

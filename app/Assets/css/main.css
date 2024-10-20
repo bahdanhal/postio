@@ -96,20 +96,33 @@ h2 {
     margin-right: 20px;
 }
 
-.delete-btn, .edit-btn {
+.post-content {
+    display: flex;
+}
+
+.post-description {
+    font-size: 1.17em;
+}
+
+.delete-btn, .edit-btn, .close-edit-btn{
     text-align: right;
     background: none;
     border: none;
     cursor: pointer;
 }
 
-.delete-btn-img, .edit-btn-img {
+.delete-btn-img, .edit-btn-img, .close-edit-img {
     width: 16px;
     height: 16px;
     margin-right: 8px;
 }
 
-.news-form {
+.edit-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-news-form {
     display: flex;
     flex-direction: column;
     gap: 10px;

@@ -7,6 +7,10 @@ services:
       - app-network
     depends_on:
       - mysql
+    environment:
+      DB_DSN: ${DB_DSN}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
 
   nginx:
     image: nginx:alpine
@@ -27,8 +31,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: testdb
-      MYSQL_USER: dbuser
-      MYSQL_PASSWORD: dbpass
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
     volumes:
       - db:/var/lib/mysql
       - ./db_seed:/docker-entrypoint-initdb.d

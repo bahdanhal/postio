@@ -26,7 +26,7 @@ final readonly class UserRepository
         $query->execute(['authToken' => $authToken]);
         $user = $query->fetch();
 
-        return ($this->unserializeUser)($user);
+        return $user ? ($this->unserializeUser)($user) : null;
     }
 
     public function getUserByLoginAndPassword(string $login, string $password): ?User

@@ -13,7 +13,7 @@ final readonly class LoginResponse extends Response
 
     public function __construct(
         protected ?true $fail = null,
-        protected string $templateName = 'login.html.twig',
+        protected ?string $templateName = 'login.html.twig',
         protected int $statusCode = 200,
     ) {
         $this->data = new LoginResponseData($this->fail);

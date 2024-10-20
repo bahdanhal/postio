@@ -7,13 +7,13 @@ namespace Postio\Post;
 final readonly class Post
 {
     public function __construct(
-        private int $id,
+        private ?int $id,
         private string $title,
         private string $description,
     ) {
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }

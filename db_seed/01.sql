@@ -15,5 +15,5 @@ CREATE TABLE posts (
     id int NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
 );
