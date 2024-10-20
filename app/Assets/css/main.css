@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #F9FAFC;
+    background-image: url('/Assets/Images/waves.svg');
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    height: 100vh;
+}
+
+.login-header .logo {
+    width: 100px;
+    margin-bottom: 40px;
+}
+
+.input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #001A50;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.login-btn:hover {
+    background-color: #003684;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.header .logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.notification {
+    background-color: #E8F5E9;
+    color: #388E3C;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.red-notification {
+    background-color: #f5e8e8;
+    color: #f12323;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1.5em;
+    color: #3c4858;
+}
+
+.news-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #F1F1F1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.news-item h3 {
+    margin-right: 20px;
+}
+
+.delete-btn, .edit-btn {
+    text-align: right;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn-img, .edit-btn-img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.news-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input, .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    background-color: rgb(0 0 0 / .01);
+    color: #001A50;
+}
+
+.textarea {
+    height: 100px;
+}
+
+.btn, .logout-btn {
+    width: 100%;
+    background-color: #001A50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.logout-btn {
+    margin-top: 20px;
+}
+
+.btn:hover, .logout-btn:hover {
+    background-color: #003684;
+}

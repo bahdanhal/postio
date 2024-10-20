@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Postio\Site\Controller;
 
+use Postio\Site\Request\Request;
 use Postio\Site\Response\Response;
+use Postio\Site\Services\ServiceContainer;
 
-abstract readonly class Controller
+interface Controller
 {
-    abstract public function __invoke(): Response;  
+    public function __construct(ServiceContainer $serviceContainer);
+    public function __invoke(Request $request): Response;
 }

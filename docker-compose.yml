@@ -1,10 +1,12 @@
 services:
-  web:
-    image: "php:8.3-fpm-alpine"
+  php:
+    build: ./docker/php
     volumes:
       - ./app:/var/www/html
     networks:
       - app-network
+    depends_on:
+      - mysql
 
   nginx:
     image: nginx:alpine
@@ -21,13 +23,20 @@ services:
 
   mysql:
     image: "mysql"
+    container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: test1
-      MYSQL_DATABASE: wp
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpass
     volumes:
       - db:/var/lib/mysql
+      - ./db_seed:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
   phpmyadmin:
     image: phpmyadmin:latest
     ports:
@@ -36,7 +45,7 @@ services:
     environment:
       PMA_HOST: mysql
     depends_on:
-      - db
+      - mysql
 
 volumes:
   db:

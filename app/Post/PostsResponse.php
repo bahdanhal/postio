@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Postio\Login;
+namespace Postio\Post;
 
 use Postio\Site\Response\Response;
 use Postio\Site\Response\ResponseData\ResponseData;
 
-final readonly class LoginResponse extends Response
+final readonly class PostsResponse extends Response
 {
     protected ResponseData $data;
 
     public function __construct(
-        protected ?true $fail = null,
-        protected string $templateName = 'login.html.twig',
+        protected array $posts = [],
+        protected string $templateName = 'dashboard.html.twig',
         protected int $statusCode = 200,
     ) {
-        $this->data = new LoginResponseData($this->fail);
+        $this->data = new PostsResponseData($posts);
     }
 }

@@ -8,8 +8,14 @@ use Postio\Site\Response\ResponseData\ResponseData;
 
 final readonly class LoginResponseData extends ResponseData
 {
+
+    public function __construct(
+        private ?true $fail = null,
+    ) {
+    }
+
     public function serialize(): array
     {
-        return [];
+        return ['fail' => $this->fail];
     }
 }

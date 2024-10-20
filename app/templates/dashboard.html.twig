@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Form</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Assets/css/main.css" /> 
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/Assets/Images/logo.svg" alt="Logo" class="logo">
+        </div>
+        <div class="notification">
+            News was successfully created!
+        </div>
+        <div class="content">
+            <h2>All News</h2>
+            <div class="news-item">
+                <h3>Test</h3>
+                <p>This is a Test</p>
+                <div class="buttons">
+                    <button class="edit-btn"><img src="/Assets/Images/pencil.svg" class="edit-btn-img" alt="pencil"></button>
+                    <button class="delete-btn"><img src="/Assets/Images/close.svg" class="delete-btn-img" alt="close"></button>
+                </div>
+            </div>
+            <h2>Create News</h2>
+            <form class="news-form">
+                <input type="text" placeholder="Title" class="input" required>
+                <textarea placeholder="Description" class="textarea" required></textarea>
+                <button type="submit" class="btn">Create</button>
+            </form>
+            <form class="logout-form" type="submit" action="/logout">
+                <button class="logout-btn"> Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
